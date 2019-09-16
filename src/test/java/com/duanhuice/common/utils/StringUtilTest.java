@@ -35,7 +35,7 @@ public class StringUtilTest {
 		String   a="dafsdfdsfsdfafjksdjk\rafaksldfjl";
 		String string = StringUtil.toHtml(a);
 		System.out.println(string);
-		
+		 
 	}
 
 	/**

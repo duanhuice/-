@@ -1,9 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>duanhuice</groupId>
-  <artifactId>duanhuice-util</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <!--提升为1.8的jdk  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>duanhuice</groupId>
+	<artifactId>duanhuice-util</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<!--提升为1.8的jdk -->
 	<build>
 		<plugins>
 			<plugin>
@@ -15,15 +17,24 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			<!--install 跳过test -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
-	
-<!--调用测试类  -->	
-<dependencies>
-<dependency>
-	<groupId>junit</groupId>
-	<artifactId>junit</artifactId>
-	<version>4.12</version>
-</dependency>
-</dependencies>
+
+	<!--调用测试类 -->
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+		</dependency>
+	</dependencies>
 </project>

@@ -11,12 +11,16 @@
  */
 package com.duanhuice.common.utils;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 /** 
  * @ClassName: StreamUtil 
@@ -78,5 +82,34 @@ public class StreamUtil {
 		
 		
 	}
-
+	/**
+	 * 
+	 * @Title: readText 
+	 * @Description: 一行读取
+	 * @param src
+	 * @return
+	 * @return: List<String>
+	 */
+ public static List<String>readTextForLine(InputStream ins){
+	 //创建数组     
+	 ArrayList<String> list = new ArrayList<String>();
+	 //创建缓冲读取流
+       BufferedReader reader = new BufferedReader(new InputStreamReader(ins));
+        String lineStr =null;
+         try {
+			while((lineStr=reader.readLine())!=null) {
+				list.add(lineStr);
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			closeAll(ins,reader);
+		}
+         return list;
+        
+ 
+ 
+ }
 }
